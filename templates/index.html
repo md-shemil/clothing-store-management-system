@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Clothing Store Management</title>
+</head>
+<body>
+    <h1>Clothing Store Management</h1>
+
+    <h2>Products</h2>
+    <ul>
+        {% for product in products %}
+            <li>
+                {{ product["name"] }} - Rs.{{ product["price"] }} - Stock: {{ product["stock"] }}
+                <a href="{{ url_for('add_to_cart', product_id=product['id']) }}">Add to Cart</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <br>
+
+    <center><a href="{{ url_for('view_cart') }}">Go to Shopping Cart</a></center>
+
+    <br>
+
+    <form action="{{ url_for('add_product_page') }}" method="get">
+        <button type="submit">Add Product</button>
+    </form>
+</body>
+</html>

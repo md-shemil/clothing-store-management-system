@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Bill</title>
+</head>
+<body>
+    <h1>Shopping Cart - Bill</h1>
+    <h2>Order Confirmation</h2>
+    <p><center>Your order has been placed successfully. Thank you!</center></p>
+
+    <h2>Items</h2>
+    <ul>
+        {% for item in cart %}
+            <li>{{ item["name"] }} - Rs.{{ item["price"] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Total: Rs.{{ total }}</h2>
+
+    
+
+    <br>
+
+    <center><a href="{{ url_for('index') }}">Back to Menu</a></center>
+</body>
+</html>
